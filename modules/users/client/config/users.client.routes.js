@@ -390,7 +390,7 @@ function UsersRoutes($stateProvider) {
       }).
       state('profile.references.list', {
         url: '',
-        template: '',
+        template: '<references-read user="profileCtrl.profile"></references-read>',
         requiresAuth: true,
         noScrollingTop: true,
         data: {
