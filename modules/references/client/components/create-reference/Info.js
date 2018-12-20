@@ -3,33 +3,16 @@ import PropTypes from 'prop-types';
 import '@/config/client/i18n';
 import { withTranslation, Trans } from 'react-i18next';
 
+import UserLink from '@/modules/users/client/components/UserLink';
+
 // @TODO provide the value from API config endpoint
 const daysToReply = 14;
-
-/**
- * Link to a user
- * @param {User} user - user to link to
- */
-function UserLink({ user }) {
-  return (<strong><a href={`/profile/${user.username}`}>{user.displayName || user.username}</a></strong>);
-}
-
-UserLink.propTypes = {
-  user: PropTypes.object.isRequired,
-};
 
 /**
  * Error message when trying to give a reference to oneself.
  */
 export const ReferenceToSelfInfo = withTranslation('reference')(function ({ t }) {
   return (<div role="alert" className="alert alert-warning">{t('Sorry, you can\'t give a reference to yourself.')}</div>);
-});
-
-/**
- * Info that data are loading.
- */
-export const LoadingInfo = withTranslation('reference')(function ({ t }) {
-  return (<div role="alert" aria-busy="true" className="alert alert-warning">{t('Wait a moment...')}</div>);
 });
 
 /**

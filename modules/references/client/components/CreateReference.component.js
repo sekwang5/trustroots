@@ -6,7 +6,8 @@ import * as references from '../api/references.api';
 import Navigation from './create-reference/Navigation';
 import Interaction from './create-reference/Interaction';
 import Recommend from './create-reference/Recommend';
-import { ReferenceToSelfInfo, LoadingInfo, DuplicateInfo, SubmittedInfo } from './create-reference/Info';
+import { ReferenceToSelfInfo, DuplicateInfo, SubmittedInfo } from './create-reference/Info';
+import Loading from '@/modules/core/client/components/Loading';
 
 const api = { references };
 
@@ -119,7 +120,7 @@ export class CreateReference extends React.Component {
 
     if (this.state.isSelf) return <ReferenceToSelfInfo />;
 
-    if (this.state.isLoading) return <LoadingInfo />;
+    if (this.state.isLoading) return <Loading />;
 
     if (this.state.isDuplicate) return <DuplicateInfo userTo={this.props.userTo} />;
 
