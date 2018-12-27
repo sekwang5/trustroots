@@ -32,6 +32,14 @@ export default function BottomNavigationSmall({ username, isSelf, contactCount }
     },
   ];
 
+  if (window.appSettings.referencesEnabled) {
+    tabs.push({
+      key: 'references',
+      label: t('References'),
+      link: `/profile/${username}/references`
+    });
+  }
+
   // contacts tab is shown only sometimes
   if (contactCount > 0 || isSelf) {
     tabs.push({
