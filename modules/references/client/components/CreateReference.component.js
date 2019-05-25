@@ -1,13 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import '@/config/client/i18n';
+import { ReferenceToSelfInfo, DuplicateInfo, SubmittedInfo } from './create-reference/Info';
 import { Tab, Tabs } from 'react-bootstrap';
 import { withTranslation } from '@/modules/core/client/utils/i18n-angular-load';
 import * as references from '../api/references.api';
-import Navigation from './create-reference/Navigation';
 import Interaction from './create-reference/Interaction';
-import Recommend from './create-reference/Recommend';
-import { ReferenceToSelfInfo, DuplicateInfo, SubmittedInfo } from './create-reference/Info';
 import Loading from '@/modules/core/client/components/Loading';
+import Navigation from './create-reference/Navigation';
+import PropTypes from 'prop-types';
+import React from 'react';
+import Recommend from './create-reference/Recommend';
 
 const api = { references };
 
