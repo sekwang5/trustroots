@@ -326,6 +326,7 @@ module.exports.initHelmetHeaders = function (app) {
       // Defines the origins from which images can be loaded.
       imgSrc: [
         '\'self\'',
+        'blob:',
         'grafana.trustroots.org',
         '*.tiles.mapbox.com', // Map tiles
         'api.mapbox.com', // Map tiles/Geocoding
@@ -352,7 +353,9 @@ module.exports.initHelmetHeaders = function (app) {
       // If not allowed the browser emulates a 400 HTTP status code.
       connectSrc: [
         '\'self\'',
+        '*.tiles.mapbox.com',
         'api.mapbox.com',
+        'events.mapbox.com',
         'fcm.googleapis.com',
         'maitreapp.co', // Signup waiting list feature
         'www.facebook.com'
@@ -383,8 +386,14 @@ module.exports.initHelmetHeaders = function (app) {
       // loaded using elements such as `<frame>` and `<iframe>`
       childSrc: [
         '\'self\'',
+        'blob:',
         '*.twitter.com',
         '*.facebook.com'
+      ],
+
+      workerSrc: [
+        '\'self\'',
+        'blob:'
       ],
 
       // San
