@@ -28,6 +28,16 @@
      */
     vm.removeContact = function (contact) {
       vm.contacts.splice(vm.contacts.indexOf(contact), 1);
+
+      // @TODO a hacky solution to remove the contact from vm.contact and keep its "promise" resolved
+      // if we just delete vm.contact, the angular app will be confused
+      if (vm.contact && vm.contact._id === contact._id) {
+        Object.keys(contact).forEach(function (key) {
+          if (!(key === '$promise' || key === '$resolved')) {
+            delete contact[key];
+          }
+        });
+      }
     };
 
 

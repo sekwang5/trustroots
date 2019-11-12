@@ -4,8 +4,7 @@ import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import RemoveContact from '../../../contacts/client/components/RemoveContactContainer';
 
-// @TODO isResolved can be removed when migration is finished
-export default function TopNavigationSmall({ username, contact, areReferences, isResolved, selfId, userId }) {
+export default function TopNavigationSmall({ username, contact, referencesEnabled, isResolved, selfId, userId, onContactRemoved }) {
 
   // @TODO this hacky fix should be removed and the data should be consistent
   if (contact) {
@@ -39,7 +38,7 @@ export default function TopNavigationSmall({ username, contact, areReferences, i
       }
     ];
 
-    if (areReferences) {
+    if (referencesEnabled) {
       links.push({
         label: t('Write a reference'),
         link: `/profile/${username}/references/new`
@@ -73,8 +72,8 @@ export default function TopNavigationSmall({ username, contact, areReferences, i
   function handleRemoveSuccess() {
     setShowRemoveModal(false);
 
-    // @TODO!!!!!!!!!!!! broadcast the removal to angular
-    // onContactRemoved(contact);
+    // broadcast the removal to angular
+    onContactRemoved(contact);
   }
 
   return (
@@ -139,59 +138,7 @@ TopNavigationSmall.propTypes = {
   selfId: PropTypes.string.isRequired,
   userId: PropTypes.string.isRequired,
   contact: PropTypes.object.isRequired,
-  areReferences: PropTypes.bool.isRequired,
-  isResolved: PropTypes.bool.isRequired
+  referencesEnabled: PropTypes.bool.isRequired,
+  isResolved: PropTypes.bool.isRequired,
+  onContactRemoved: PropTypes.func.isRequired
 };
-
-
-/*
-<!-- Top Navigation for small screens -->
-<!-- When looking at own profile -->
-<nav className="navbar navbar-white navbar-fixed-top navbar-fixed-top-below visible-xs-block"
-     ng-if="app.user._id === profileCtrl.profile._id">
-  <div className="container">
-    <ul className="nav navbar-nav" role="navigation">
-      <li><a ui-sref="profile-edit.about">Edit your profile</a></li>
-    </ul>
-  </div>
-</nav>
-
-<!-- Top Navigation for small screens -->
-<!-- When looking at somebody else's profile -->
-<nav className="navbar navbar-white navbar-fixed-top navbar-fixed-top-below visible-xs-block"
-     ng-if="app.user._id !== profileCtrl.profile._id">
-  <div className="container">
-    <ul className="nav navbar-nav" role="toolbar" aria-label="Profile actions">
-      <li>
-        <a ui-sref="messageThread({username: profileCtrl.profile.username})">
-          Send a message
-        </a>
-      </li>
-      <li ng-if="app.appSettings.referencesEnabled">
-        <a ui-sref="profile.references.new({username: profileCtrl.profile.username})">
-          Write a reference
-        </a>
-      </li>
-      <li>
-        <a ui-sref="contactAdd({userId: profileCtrl.profile._id})"
-           ng-if="profileCtrl.contact.$resolved && !profileCtrl.contact._id">
-          Add contact
-        </a>
-        <a ng-if="profileCtrl.contact.$resolved && profileCtrl.contact._id"
-           tr-contact-remove="profileCtrl.contact">
-          <span ng-if="profileCtrl.contact.confirmed"
-                uib-tooltip="Contacts since {{ ::profileCtrl.contact.created | date:'mediumDate' }}"
-                tooltip-placement="bottom">
-            Remove contact
-          </span>
-          <span ng-if="!profileCtrl.contact.confirmed"
-                uib-tooltip="Request sent {{ ::profileCtrl.contact.created | date:'mediumDate' }}"
-                tooltip-placement="bottom">
-            Delete contact request
-          </span>
-        </a>
-      </li>
-    </ul>
-  </div>
-</nav>
-*/
