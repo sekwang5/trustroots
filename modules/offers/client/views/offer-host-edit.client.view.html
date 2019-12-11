@@ -32,6 +32,13 @@
   <uib-tabset class="offer-tabs" active="offerHostEdit.offerTab">
     <uib-tab index="0" heading="Availability">
 
+      <offer-host-availability
+        availability="offerHostEdit.offer.status"
+        maxGuests="offerHostEdit.offer.maxGuests"
+        onUpdateAvailability="offerHostEdit.updateStatus"
+        onUpdateMaxGuests="offerHostEdit.updateMaxGuests"
+      ></offer-host-availability>
+
       <div class="row">
         <div class="col-xs-12 col-sm-6">
 
