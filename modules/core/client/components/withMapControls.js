@@ -49,11 +49,4 @@ const withMapControls = (WrappedComponent) => {
 
 withMapControls.propTypes = {};
 
-/*
-withMapControls.defaultProps = {
-  height: 320,
-  width: '100%',
-};
-*/
-
 export default withMapControls;

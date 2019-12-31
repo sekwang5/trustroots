@@ -5,7 +5,7 @@ import React from 'react';
 import ReactMapGL from 'react-map-gl';
 
 // Internal dependencies
-import withMapControls from '@/modules/core/client/components/withMapControls.component';
+import withMapControls from '@/modules/core/client/components/withMapControls';
 
 class OfferLocation extends React.Component {
   constructor(props) {
