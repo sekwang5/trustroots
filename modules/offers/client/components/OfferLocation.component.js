@@ -34,7 +34,9 @@ class OfferLocation extends React.Component {
       <ReactMapGL
         {...viewport}
         className="offer-location"
+        height={ 320 }
         onViewportChange={this.handleViewportChange}
+        width="100%"
       >
         <Marker
           latitude={offer.location[0]}
