@@ -14,7 +14,7 @@ export default class ReferencesRead extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      references: null
+      references: null,
     };
   }
 
@@ -42,5 +42,5 @@ export default class ReferencesRead extends React.Component {
 }
 
 ReferencesRead.propTypes = {
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
 };

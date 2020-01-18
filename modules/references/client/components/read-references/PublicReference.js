@@ -21,7 +21,7 @@ export function PublicReference({ t, reference }) {
 
 PublicReference.propTypes = {
   t: PropTypes.func.isRequired,
-  reference: PropTypes.object.isRequired
+  reference: PropTypes.object.isRequired,
 };
 
 export default withTranslation('reference')(PublicReference);

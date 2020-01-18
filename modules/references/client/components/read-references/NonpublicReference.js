@@ -20,7 +20,7 @@ export function NonpublicReference({ t, reference }) {
 
 NonpublicReference.propTypes = {
   t: PropTypes.func.isRequired,
-  reference: PropTypes.object.isRequired
+  reference: PropTypes.object.isRequired,
 };
 
 export default withTranslation('reference')(NonpublicReference);

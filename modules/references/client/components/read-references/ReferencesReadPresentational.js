@@ -5,8 +5,8 @@ import React from 'react';
 import Reference from './Reference';
 
 export function ReferencesReadPresentational({ t, publicReferences, nonpublicReferences }) {
-  const hasAnyNonpublicReferences = publicReferences && publicReferences.length > 0;
-  const hasAnyPublicReferences = nonpublicReferences && nonpublicReferences.length > 0;
+  const hasAnyPublicReferences = publicReferences && publicReferences.length > 0;
+  const hasAnyNonpublicReferences = nonpublicReferences && nonpublicReferences.length > 0;
 
   // No references
   if (!hasAnyNonpublicReferences && !hasAnyPublicReferences) {
@@ -71,13 +71,13 @@ export function ReferencesReadPresentational({ t, publicReferences, nonpublicRef
       {hasAnyPublicReferences && renderReferencesSection(t('Public'), publicReferences)}
     </>
   );
-};
+}
 
 ReferencesReadPresentational.propTypes = {
   t: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
   publicReferences: PropTypes.array.isRequired,
-  nonpublicReferences: PropTypes.array
+  nonpublicReferences: PropTypes.array,
 };
 
 export default withTranslation('reference')(ReferencesReadPresentational);

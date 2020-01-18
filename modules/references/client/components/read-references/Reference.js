@@ -20,5 +20,5 @@ export default function Reference({ reference }) {
 }
 
 Reference.propTypes = {
-  reference: PropTypes.object.isRequired
+  reference: PropTypes.object.isRequired,
 };
